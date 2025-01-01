@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.mons2"
+    compileSdk = 33 // 최신 버전으로 설정 (Flutter SDK 권장 버전 확인)
+    ndkVersion = "21.3.6528147" // 필요한 경우 적절한 ndkVersion 설정
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.mons2"
+        minSdk = 21 // 최소 SDK 버전 설정
+        targetSdk = 33 // 최신 버전으로 설정 (Flutter SDK 권장 버전 확인)
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug // 필요한 경우 Release 키 설정
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
